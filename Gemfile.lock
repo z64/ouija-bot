@@ -1,15 +1,16 @@
 GIT
   remote: https://github.com/meew0/discordrb
-  revision: 8bf4260541b116a9a40738dbeb65b2baca18b5df
-  ref: 8bf4260541b116a9a40738dbeb65b2baca18b5df
+  revision: 3a39380aaeb199283385bc117f191e8178671e89
+  ref: 3a39380aaeb199283385bc117f191e8178671e89
   specs:
-    discordrb (3.2.1)
-      discordrb-webhooks (~> 3.2.0.1)
+    discordrb (3.3.0)
+      discordrb-webhooks (~> 3.3.0)
+      ffi (>= 1.9.24)
       opus-ruby
       rbnacl (~> 3.4.0)
       rest-client (>= 2.1.0.rc1)
       websocket-client-simple (>= 0.3.0)
-    discordrb-webhooks (3.2.0.1)
+    discordrb-webhooks (3.3.0)
       rest-client (>= 2.1.0.rc1)
 
 GEM
@@ -76,4 +77,4 @@ DEPENDENCIES
   sequel (~> 5.13.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
