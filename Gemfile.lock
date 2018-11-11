@@ -1,15 +1,16 @@
 GIT
-  remote: https://github.com/meew0/discordrb
-  revision: a8c9ad3b8dc9d71a123130ab0d172177c9907842
-  ref: a8c9ad3b8dc9d71a123130ab0d172177c9907842
+  remote: https://github.com/z64/discordrb
+  revision: a083fef9d85686339a206802c5210d89117b6cc2
+  branch: parallel
   specs:
-    discordrb (3.2.1)
-      discordrb-webhooks (~> 3.2.0.1)
+    discordrb (3.3.0)
+      discordrb-webhooks (~> 3.3.0)
+      ffi (>= 1.9.24)
       opus-ruby
-      rbnacl (~> 3.4.0)
+      rbnacl (~> 5.0)
       rest-client (>= 2.1.0.rc1)
       websocket-client-simple (>= 0.3.0)
-    discordrb-webhooks (3.2.0.1)
+    discordrb-webhooks (3.3.0)
       rest-client (>= 2.1.0.rc1)
 
 GEM
@@ -38,7 +39,7 @@ GEM
     powerpack (0.1.2)
     rainbow (3.0.0)
     rake (12.3.1)
-    rbnacl (3.4.0)
+    rbnacl (5.0.0)
       ffi
     rest-client (2.1.0.rc1)
       http-accept (>= 1.7.0, < 2.0)
