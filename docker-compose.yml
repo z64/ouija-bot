@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:10-alpine
+  bot:
+    image: ouija:latest
+    depends_on:
+      - postgres
+    env_file: ${COMPOSE_ROOT}/secret.env
+    environment:
+      OUIJA_PREFIX: "ouija!!"

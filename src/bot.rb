@@ -5,6 +5,27 @@ require 'yaml'
 require 'dotenv/load'
 require 'sequel'
 
+a = 0
+COUNTER = ->{ a+= 1 }
+
+lap = Time.now
+TIMER = proc do
+  elapsed = Time.now - lap
+  lap = Time.now
+  elapsed
+end
+
+class Discordrb::Bot
+  def create_guild(data)
+    count = COUNTER.call
+    event_elapsed = TIMER.call
+    cache_time = Time.now
+    Discordrb::LOGGER.info("[GUILD_CREATE #{count}] #{data["id"]} starting (members: #{data['members'].size}, last: #{event_elapsed})")
+    ensure_server(data)
+    Discordrb::LOGGER.info("[GUILD_CREATE #{count}] #{data["id"]} done (#{Time.now - cache_time})")
+  end
+end
+
 # The main bot module.
 module Bot
   # Load non-Discordrb modules
@@ -41,6 +62,10 @@ module Bot
 
   load_modules(:DiscordEvents, 'events')
   load_modules(:DiscordCommands, 'commands')
+
+  BOT.heartbeat { Discordrb::LOGGER.info("heartbeat") }
+
+  BOT.gateway.check_heartbeat_acks = false
 
   # Run the bot
   BOT.run
