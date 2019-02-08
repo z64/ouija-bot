@@ -26,6 +26,13 @@ class Discordrb::Bot
   end
 end
 
+class Discordrb::Gateway
+  def handle_heartbeat_ack(packet)
+    Discordrb::LOGGER.info("Received heartbeat ack for packet: #{packet.inspect}")
+    @last_heartbeat_acked = true if @check_heartbeat_acks
+  end
+end
+
 # The main bot module.
 module Bot
   # Load non-Discordrb modules
